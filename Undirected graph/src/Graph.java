@@ -78,31 +78,68 @@ public class Graph {
             }
         }
     }
-    public void DFS(int v) {
-        int[] edgeTo = new int[V];
+    public void DFS(int v,boolean[] visited,int[] edgeTo) {
         visited[v] = true;
-        System.out.print(v+" ");
+        System.out.print(v+ " ");
         for(int w : neighboors[v]) {
             if(!visited[w]) {
                 visited[w] = true;
                 edgeTo[w]=v;
-                DFS(w);
+                DFS(w,visited,edgeTo);
             }
         }
+    }
+    public int[] dfsHelper(int v) {
+        int[] edgeTo = new int[V];
+        boolean[] visited = new boolean[V];
+        visited[v] = true;
+        DFS(v,visited,edgeTo);
+
+        /*System.out.println("\n EdgeTo dizisi : ");
+        for(int i=0;i<V;i++) {
+            System.out.println(i+" "+edgeTo[i]);
+        }*/
+        return edgeTo;
+    }
+    public void hasCycle() {
 
     }
+    public void printPath(int start, int end, int[] edgeTo) {
+        if (edgeTo[end] == -1) {
+            System.out.println("Yol bulunamadı!");
+            return;
+        }
 
+        List<Integer> path = new ArrayList<>();
+        for (int x = end; x != start; x = edgeTo[x]) {
+            path.add(x);
+        }
+        path.add(start);
+        Collections.reverse(path);
+
+        System.out.println("Yol: " + path);
+    }
     public static void main(String[] args) {
-        Graph graph = new Graph(4);
+        Graph graph = new Graph(7);
         graph.addEdge(0, 1);
         graph.addEdge(0, 2);
         graph.addEdge(1, 2);
         graph.addEdge(2, 3);
         graph.addEdge(3, 0);
+        graph.addEdge(3, 4);
+        graph.addEdge(4, 0);
+        graph.addEdge(2, 5);
+        graph.addEdge(6, 4);
+
        /* for(int w: graph.getNeighboors(0)) {
             System.out.print(w + " ");
         }
         */
+        //graph.bfs(2);
+        graph.dfsHelper(0);
+
+        //int[] edgeTo = graph.dfsHelper(0);
+        //graph.printPath(0,6,edgeTo);
 
 
 
