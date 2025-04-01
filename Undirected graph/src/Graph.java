@@ -4,6 +4,10 @@ import java.util.*;
 public class Graph {
     public int V;
     private LinkedList<Integer>[] neighboors;
+    public int[] distTo;
+    boolean[] visited;
+    public int id[];
+    public int currentId;
     public Graph(int v) {
         this.V = v;
         this.neighboors = new LinkedList[v];
@@ -23,10 +27,68 @@ public class Graph {
     }
 
     public int maxDegree() {
-        return 0;
+        int maxDegree = degree(0);
+        int maxDegreeVertex = 0;
+        for (int i=1; i<V; i++) {
+            if(degree(i)>maxDegree) {
+                maxDegree = degree(i);
+                maxDegreeVertex = i;
+            }
+        }
+        return maxDegreeVertex;
     }
     public int getNumberOfSelfLoops() {
-        return 0;
+       int counter = 0;
+       for(int v=0; v<V; v++) {
+           for(int w : neighboors[v]) {
+               if(w==v) counter++;
+           }
+       }
+       return counter/2;
+
+    }
+    public void bfs(int s){
+        boolean[] visited = new boolean[V];
+        int[] edgeTo = new int[V];
+        distTo = new int[V];
+        LinkedList<Integer> queue = new LinkedList<>();
+        queue.add(s);
+        visited[s] = true;
+        while(!queue.isEmpty()) {
+            int v = queue.removeFirst();
+            for(int w : neighboors[v]) {
+                if(!visited[w]) {
+                    visited[w] = true;
+                    edgeTo[w] = v;
+                    distTo[v] = distTo[w] + 1;
+                    System.out.print(w + " ");
+                    queue.add(w);
+                }
+            }
+        }
+    }
+    public void connectedComponents() {
+        visited = new boolean[V];
+        id = new int[V];
+        currentId = 0;
+        for(int v=0; v<V; v++) {
+            if(!visited[v]) {
+                bfs(v);
+                currentId++;
+            }
+        }
+    }
+    public void DFS(int v) {
+        int[] edgeTo = new int[V];
+        visited[v] = true;
+        System.out.print(v+" ");
+        for(int w : neighboors[v]) {
+            if(!visited[w]) {
+                visited[w] = true;
+                edgeTo[w]=v;
+                DFS(w);
+            }
+        }
 
     }
 
@@ -41,10 +103,7 @@ public class Graph {
             System.out.print(w + " ");
         }
         */
-        Path paths = new Path(graph,0);
-        for( int v : paths.getPath(3) ) {
-            System.out.print(v + " ");
-        }
+
 
 
 
