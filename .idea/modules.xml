@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Directed Graph/Directed Graph.iml" filepath="$PROJECT_DIR$/Directed Graph/Directed Graph.iml" />
       <module fileurl="file://$PROJECT_DIR$/Undirected graph/Undirected graph.iml" filepath="$PROJECT_DIR$/Undirected graph/Undirected graph.iml" />
       <module fileurl="file://$PROJECT_DIR$/graph.iml" filepath="$PROJECT_DIR$/graph.iml" />
     </modules>
