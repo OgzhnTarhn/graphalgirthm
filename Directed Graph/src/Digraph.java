@@ -58,17 +58,34 @@ public class Digraph {
     }
 
     public static void main(String[] args) {
-        Digraph digraph = new Digraph(6);
-        digraph.addEdge(0, 1);
-        digraph.addEdge(0, 2);
-        digraph.addEdge(1, 2);
-        digraph.addEdge(2, 3);
-        digraph.addEdge(3, 4);
-        digraph.addEdge(2, 5);
-        digraph.addEdge(3, 5);
-        digraph.DFS(0);
-        System.out.println();
-        digraph.BFS(0);
+        Digraph g = new Digraph(7);
+        g.addEdge(0, 1);
+        g.addEdge(0, 2);
+        g.addEdge(0, 5);
+        g.addEdge(1, 4);
+        g.addEdge(3, 2);
+        g.addEdge(3, 4);
+        g.addEdge(3, 5);
+        g.addEdge(3, 6);
+        g.addEdge(5, 2);
+        g.addEdge(6, 0);
+        g.addEdge(6, 4);
+        //g.BFS(0);
+        // 2) Ayrı bir döngü kontrolü
+        boolean isCyclic = g.isCyclic();
+        System.out.println("Graf döngülü mü? " + isCyclic);
+
+        // 3) TopologicalSort (DFS + onStack) ile deneyelim
+        TopologicalSort ts = new TopologicalSort(g);
+        if (ts.hasCycle()) {
+            System.out.println("Döngü tespit edildi, topological sort YOK!");
+        } else {
+            System.out.println("Topological Sıralama:");
+            for (int v : ts.getOrder()) {
+                System.out.print(v + " ");
+            }
+            System.out.println();
+        }
 
     }
     public boolean isCyclic() {
