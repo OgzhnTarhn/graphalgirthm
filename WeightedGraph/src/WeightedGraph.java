@@ -42,7 +42,7 @@ public class WeightedGraph {
 
         KruskalMST mst = new KruskalMST(g);
         for(Edge e:mst.getEdges()){
-            System.out.println(e.v + " - " + e.w);
+            System.out.println(e.v + " - " + e.w + "  (" + e.weight + ")");
         }
     }
 }

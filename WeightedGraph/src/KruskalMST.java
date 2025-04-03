@@ -42,10 +42,11 @@ public class KruskalMST {
 
     // Düğümün küme kökünü bulma (find) işlemi
     private int findRoot(int v){
-        while(v != componentIds[v])
-            v = componentIds[v];
+        while (v != componentIds[v])
+            v = componentIds[v];  // doğru şekilde yazılmalı
         return v;
     }
+
 
     // MST’nin kenarlarını döner
     public Iterable<Edge> getEdges(){
