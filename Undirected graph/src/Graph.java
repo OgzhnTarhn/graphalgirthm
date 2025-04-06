@@ -121,6 +121,37 @@ public class Graph {
 
         System.out.println("Yol: " + path);
     }
+    public class Solution {
+        public boolean isBipartite(int[][] graph) {
+            int colored[] = new int[graph.length];
+            Arrays.fill(colored,-1);
+            for(int i = 0 ; i < colored.length; i++){
+                if(colored[i] == -1){
+                    if(!BFS(graph,colored,i)){
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        public boolean BFS(int[][] graph, int visited[], int start){
+            Queue<Integer> q =  new LinkedList<>();
+            q.add(start);
+            visited[start] = 0;
+            while(!q.isEmpty()){
+                int node = q.remove();
+                for(int neighbor:graph[node]){
+                    if(visited[neighbor]==-1){
+                        visited[neighbor] =1-visited[node];
+                        q.add(neighbor);
+                    }
+                    else if(visited[neighbor]==visited[node])
+                        return false;
+
+                }
+            }
+            return true;
+        }
     public static void main(String[] args) {
         Graph graph = new Graph(7);
         graph.addEdge(0, 1);
@@ -148,4 +179,4 @@ public class Graph {
 
     }
 
-}
+}}
