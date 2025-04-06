@@ -54,13 +54,15 @@ public class Graph {
         LinkedList<Integer> queue = new LinkedList<>();
         queue.add(s);
         visited[s] = true;
+        id[s] = currentId;
         while(!queue.isEmpty()) {
             int v = queue.removeFirst();
             for(int w : neighboors[v]) {
                 if(!visited[w]) {
                     visited[w] = true;
+                    id[w] = currentId;
                     edgeTo[w] = v;
-                    distTo[v] = distTo[w] + 1;
+                    distTo[w] = distTo[v] + 1;
                     System.out.print(w + " ");
                     queue.add(w);
                 }
