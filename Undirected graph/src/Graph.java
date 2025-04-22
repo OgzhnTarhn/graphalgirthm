@@ -121,6 +121,7 @@ public class Graph {
 
         System.out.println("Yol: " + path);
     }
+
     public class Solution {
         public boolean isBipartite(int[][] graph) {
             int colored[] = new int[graph.length];
@@ -173,9 +174,6 @@ public class Graph {
 
         //int[] edgeTo = graph.dfsHelper(0);
         //graph.printPath(0,6,edgeTo);
-
-
-
 
     }
 

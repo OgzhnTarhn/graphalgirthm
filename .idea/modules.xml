@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Directed Graph/Directed Graph.iml" filepath="$PROJECT_DIR$/Directed Graph/Directed Graph.iml" />
       <module fileurl="file://$PROJECT_DIR$/Notes/Notes.iml" filepath="$PROJECT_DIR$/Notes/Notes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tries/Tries.iml" filepath="$PROJECT_DIR$/Tries/Tries.iml" />
       <module fileurl="file://$PROJECT_DIR$/Undirected graph/Undirected graph.iml" filepath="$PROJECT_DIR$/Undirected graph/Undirected graph.iml" />
       <module fileurl="file://$PROJECT_DIR$/WeightedDirectedGraph/WeightedDirectedGraph.iml" filepath="$PROJECT_DIR$/WeightedDirectedGraph/WeightedDirectedGraph.iml" />
       <module fileurl="file://$PROJECT_DIR$/WeightedUndirectedGraph/WeightedGraph.iml" filepath="$PROJECT_DIR$/WeightedUndirectedGraph/WeightedGraph.iml" />
