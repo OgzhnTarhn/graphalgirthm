@@ -1,0 +1,57 @@
+Somut Örnek: “sea” anahtarını ekleyelim
+Anahtar: "sea", değer: 6.
+
+Çağrı Dizisi	d	İşlem	Sonuç
+put(root, "sea", 6, 0)	0	x kök düğüm (var), d < 3 → c='s'	recursive → level 1
+put(root.next['s'], ..., 1)	1	root.next['s'] null → yeni düğüm oluştur	döner → bağlı ‘s’ düğümüne
+put(sNode.next['e'], ..., 2)	2	sNode.next['e'] null → yeni düğüm oluştur	döner → bağlı ‘e’ düğümüne
+put(eNode.next['a'], ..., 3)	3	d==3 (key.length) → aNode.val = 6 atandı	döner → eNode, sNode, root
+
+Ağaç genişlerken:
+
+scss
+Kopyala
+Düzenle
+(root)
+  └─['s']→ Node (s)
+        └─['e']→ Node (e)
+              └─['a']→ Node (a, val=6)
+1. Adım (d=0): Kökten next['s'] izlenir.
+
+2. Adım (d=1): s düğümünden next['e']. Yoksa oluştur.
+
+3. Adım (d=2): e düğümünden next['a']. Oluştur.
+
+4. Adım (d=3): d==L, bu düğümün val alanına 6 yaz.
+
+5. Performansa Etkisi
+Zaman Karmaşıklığı: Tam L karakter işlenir →
+𝑂
+(
+𝐿
+)
+O(L).
+
+Alan Kullanımı: Yeni düğüm oluşturmak R işaretçi yer kaplar → her eklemede en kötü
+𝑂
+(
+𝑅
+)
+O(R) yeni düğüm, toplam
+𝑂
+(
+𝑅
+𝑁
+)
+O(RN).
+
+Erken Oluşturma: Sadece eksik bağlantılarda new Node() çağrılır; ortak önekleri tekrar tekrar yaratmaz.
+
+6. Neden Önemli?
+Prefix Paylaşımı: Önekler (örneğin “s”, “se”) tek düğüm ağacı üzerinden paylaştırılır, bellek ve zaman kazanımı sağlar.
+
+Sabit Karakter Adımları: Uzun anahtarlar bile sabit adımla (
+𝐿
+L) işlenir, sıralı arama yöntemlerinden daha hızlı olabilir.
+
+İleriye Dönük Operasyonlar: put ile inşa edilen trie, aynı kodla get, contains, keysWithPrefix gibi güçlü işlemleri destekler
