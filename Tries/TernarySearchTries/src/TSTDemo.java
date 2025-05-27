@@ -12,6 +12,7 @@ public class TSTDemo {
         tst.put("she", 0);
         tst.put("shore", 7);
         tst.put("the", 5);
+        tst.put("shell", 5);
 
         // Örnek aramalar
         System.out.println("get(\"sea\")    = " + tst.get("sea"));      // beklenen 6
@@ -81,26 +82,31 @@ public class TSTDemo {
         // Prefix ile başlayan tüm anahtarları toplar
         public Iterable<String> keysWithPrefix(String prefix) {
             Queue<String> results = new LinkedList<>();
-            if (prefix == null || prefix.isEmpty()) return results;
+            if (prefix == null) return results;
+            // 1. Önek düğümünü bul
             Node x = get(root, prefix, 0);
-            collect(x, new StringBuilder(prefix), results);
+            if (x == null) return results;
+            // 2. Eğer tam prefix kendisi bir anahtar ise ekle
+            if (x.val != null) results.add(prefix);
+            // 3. Sadece mid alt ağacını, prefix baz alarak tara
+            collect(x.mid, new StringBuilder(prefix), results);
             return results;
         }
+
         private void collect(Node x, StringBuilder prefix, Queue<String> results) {
             if (x == null) return;
+            // 1) Önce left—bu alt ağaçlarda karakterler x.c'den küçük olurken
+            collect(x.left, prefix, results);
+            // 2) Şimdi x.c karakterini ekleyip
+            prefix.append(x.c);
+            //    eğer burada bir değer varsa, bu tam bir anahtar demek
             if (x.val != null) results.add(prefix.toString());
-            // Orta dalı önce işle (eşit karakter)
+            // 3) Devamı mid ile; prefix güncel
             collect(x.mid, prefix, results);
-            // Sonra soldaki
-            if (x.left != null) {
-                collect(x.left, prefix.deleteCharAt(prefix.length()-1), results);
-                prefix.append(x.c);
-            }
-            // Ardından sağdaki
-            if (x.right != null) {
-                collect(x.right, prefix.deleteCharAt(prefix.length()-1), results);
-                prefix.append(x.c);
-            }
+            // 4) Backtrack: eklediğin karakteri sil
+            prefix.deleteCharAt(prefix.length() - 1);
+            // 5) Son olarak right—x.c'den büyük karakterler
+            collect(x.right, prefix, results);
         }
     }
 }
