@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/SubstringSearch/BruteForce/BruteForce.iml" filepath="$PROJECT_DIR$/SubstringSearch/BruteForce/BruteForce.iml" />
       <module fileurl="file://$PROJECT_DIR$/Directed Graph/Directed Graph.iml" filepath="$PROJECT_DIR$/Directed Graph/Directed Graph.iml" />
       <module fileurl="file://$PROJECT_DIR$/Tries/Homework/Homework.iml" filepath="$PROJECT_DIR$/Tries/Homework/Homework.iml" />
       <module fileurl="file://$PROJECT_DIR$/Notes/Notes.iml" filepath="$PROJECT_DIR$/Notes/Notes.iml" />
       <module fileurl="file://$PROJECT_DIR$/Tries/R-Way Trie/R-Way Trie.iml" filepath="$PROJECT_DIR$/Tries/R-Way Trie/R-Way Trie.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SubstringSearch/SubstringSearch.iml" filepath="$PROJECT_DIR$/SubstringSearch/SubstringSearch.iml" />
       <module fileurl="file://$PROJECT_DIR$/Tries/TernarySearchTries/TernarySearchTries.iml" filepath="$PROJECT_DIR$/Tries/TernarySearchTries/TernarySearchTries.iml" />
       <module fileurl="file://$PROJECT_DIR$/Tries/Tries.iml" filepath="$PROJECT_DIR$/Tries/Tries.iml" />
       <module fileurl="file://$PROJECT_DIR$/Undirected graph/Undirected graph.iml" filepath="$PROJECT_DIR$/Undirected graph/Undirected graph.iml" />
