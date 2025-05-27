@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 import java.util.Queue;
-public class TrieDemo {
+public class RWayTrie {
     public static void main(String[] args) {
         // Trie örneği oluştur
         TrieST<Integer> trie = new TrieST<>();
