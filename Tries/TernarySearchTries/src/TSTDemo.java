@@ -10,6 +10,7 @@ public class TSTDemo {
         tst.put("sea", 6);
         tst.put("shells", 3);
         tst.put("she", 0);
+        tst.put("shea", 66);
         tst.put("shore", 7);
         tst.put("the", 5);
         tst.put("shell", 5);

@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/Undirected graph/Undirected graph.iml" filepath="$PROJECT_DIR$/Undirected graph/Undirected graph.iml" />
       <module fileurl="file://$PROJECT_DIR$/WeightedDirectedGraph/WeightedDirectedGraph.iml" filepath="$PROJECT_DIR$/WeightedDirectedGraph/WeightedDirectedGraph.iml" />
       <module fileurl="file://$PROJECT_DIR$/WeightedUndirectedGraph/WeightedGraph.iml" filepath="$PROJECT_DIR$/WeightedUndirectedGraph/WeightedGraph.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tries/R-Way Trie/WildCard/WildCard.iml" filepath="$PROJECT_DIR$/Tries/R-Way Trie/WildCard/WildCard.iml" />
       <module fileurl="file://$PROJECT_DIR$/graph.iml" filepath="$PROJECT_DIR$/graph.iml" />
     </modules>
   </component>
