@@ -40,7 +40,7 @@ public class BoyerMoore {
             for (int j = M - 1; j >= 0; j--) {
                 if (pat.charAt(j) != txt.charAt(i + j)) {
                     // Uyuşmazlık: kaydırma miktarını hesapla
-                    int c = txt.charAt(i + j);
+                    int c = txt.charAt(i + j); //ASCI tablosunda karşılığı tutuluyor
                     skip = j - right[c];
                     if (skip < 1) skip = 1;
                     break;
